@@ -1,38 +1,61 @@
-.App {
-  text-align: center;
+body{
+  margin: 0;
+  background-color:hsla(344, 17%, 74%, 0.384);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  text-align:center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1{
+  margin:;
+  margin-bottom: .5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.spread{
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid grey;
+  border-radius: 1rem;
+  padding: 2rem;
+  max-width: 1600px;
+}
+
+@media (max-width: 400px) {
+  .spread {
+    flex-basis: 100%;
+    flex-wrap: wrap;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-object{
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted grey;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: .5rem;
+}
+
+.card{
+  background-image: url('./images/z-back.jpg');
+  background-size: 110%;
+  background-position: center;
+  height:250px;
+  width:150px;
+  border: solid black;
+  padding: .5rem;
+  border-radius: 1rem;
+}
+
+.reading-container{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 60vh;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+select{
+  width: 15vh;
 }
