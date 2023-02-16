@@ -6,7 +6,7 @@ import Card from "../components/Card";
 const ReadingContainer = () => {
     const [selectedSpread, setSelectedSpread] = useState('');  // this is selecting the spread - 3 or 10
     const [selectedTopic, setSelectedTopic] = useState('');     // this is selecting the topic - does nothing atm 
-    const [cards, setCards] = useState([]);
+    const [cards, setCards] = useState(null);
 
 
     const handleSpreadChange = (event) => {
@@ -19,8 +19,8 @@ const ReadingContainer = () => {
 
 
     const handleSubmit = () => {
-        setCards([]);
-        setSelectedTopic("");
+        // setCards([]);
+        // setSelectedTopic("");
     };
 
     useEffect(() => {
@@ -34,7 +34,10 @@ const ReadingContainer = () => {
             }
 
             if (apiLink) {
-                const data = await fetch(apiLink).then((res) => res.json());
+                const data = fetch(apiLink)
+                .then((res) => res.json())
+                .then((info) => {setCards(info.cards)})
+
                 console.log("data from API:", data);
                 setCards(data);
             }
@@ -56,7 +59,7 @@ const ReadingContainer = () => {
                         <option value="three-card">Three-Card Spread</option>
                         <option value="celtic-cross">Celtic Cross Spread</option>
                     </select>
-                    {cards.length > 0 && <Card card={cards} />}
+                    {/* {cards.length > 0 && <Card card={cards} />} */}
                 </div>
 
                 <select value={selectedTopic} onChange={handleTopicChange}>
@@ -67,16 +70,16 @@ const ReadingContainer = () => {
                     <option value='code'>code</option>
                     <option value='money'>money</option>
                 </select>
-
+{/* 
                 <button type="submit" onClick={handleSubmit}>
                     Get a Reading
-                </button>
+                </button> */}
 
-                <Spread
+                {cards ? <Spread
                     spread={selectedSpread}
                     topic={selectedTopic}
                     cards={cards}
-                />
+                /> : null}
 
                 <Reading />
             </div>

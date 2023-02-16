@@ -3,10 +3,18 @@ import Card from "./Card";
 import Reading from "./Reading";
 
 const Spread = ({ cards }) => {
+    let cardsForRender
+
+    if(cards.length > 0){
+        cardsForRender = cards.map((card) => {
+            console.log(card);
+            return <Card card={card}/>
+        })
+    }
     return (
         <>
             <div className="spread">
-                {cards.length > 0 && cards.map(card => <Card card={card} />)}
+                {cardsForRender}
 
             </div>
         </>

@@ -1,3 +1,18 @@
+_______
+
+contains images, may slow download slightly on slower connections - image folder is about 34MB
+
+(images are public domain, not to be used commercially)
+
+_______
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
