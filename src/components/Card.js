@@ -1,7 +1,7 @@
 import React from "react";
 
-const Card = ({card}) => {
-    const imgPath = require(`../images/${card.name_short}.jpg`);
+const Card = ({card, cardDescription}) => {
+    const imgPath = require(`../images/${card.nameShort}.jpg`);
 
 
     return (
@@ -9,9 +9,9 @@ const Card = ({card}) => {
             <div className="card-object">
                 <div className="card">
                 <img src={imgPath} alt={card.name} />
+                <p className="cardDescription">{cardDescription}</p>
                 </div>
                 <div className="name-of-card">
-                <h2>{card.name}</h2>
                 </div>
             </div>
         </>

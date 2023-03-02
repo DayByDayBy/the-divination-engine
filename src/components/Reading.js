@@ -4,15 +4,16 @@ import Card from "./Card";
 import Spread from "./Spread";
 
 
+
 const Reading = ({ cards = [] }) => {
     return (
 
-        <div className="reading">
+        <div className="meanings">
             {cards.map(card => {
                 return (
-                    <div>
+                    <div className = "meaning">
                         <h3>{card.name}</h3>
-                        <p>{card.meaning_up}</p>
+                        <p>{card.meaningUp}</p>
                     </div>
                 );
             })}
