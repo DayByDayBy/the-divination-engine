@@ -6,11 +6,27 @@ body{
   align-items: center;
   min-height: 80vh;
   text-align:center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight:bolder;
+}
+
+ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+li{
+  list-style: none;
 }
 
 h1{
   margin: 0;
+  padding:0;
   margin-bottom: .5rem;
+}
+
+h3{
+margin:.5rem 0 .5rem 0;
 }
 
 img{
@@ -19,10 +35,17 @@ img{
   object-fit: cover;
 }
 
+p{
+  margin:0;
+  padding: 0;
+}
+
 
 .spread{
   display: flex;
   justify-content: space-evenly;
+  font-family: inherit;
+  font-weight: bold;
   border: 1px solid grey;
   border-radius: 1rem;
   padding: 2rem;
@@ -36,9 +59,16 @@ img{
   }
 }
 
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  width:90vw;
+}
+
 .card-object{
   display: flex;
-  flex-direction: column;
+  align-content:space-between;
   border: 1px dotted grey;
   border-radius: 1rem;
   padding: 1rem;
@@ -54,15 +84,36 @@ img{
   border: solid black;
   padding: .5rem;
   border-radius: 1rem;
-  
+}
+
+.cardDescription{
+  margin-top: 2rem;
+}
+
+.meanings{
+  display: flex;
+  max-width: 30vw;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.meaning{
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  margin: 0rem 1rem;
   
 }
 
 .reading-container{
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 60vh;
+  width: 90vh;
+}
+
+.reading-dropdown{
+  justify-content: center;
 }
 
 select{

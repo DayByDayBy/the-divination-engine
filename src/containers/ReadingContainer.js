@@ -5,44 +5,69 @@ import Card from "../components/Card";
 
 const ReadingContainer = () => {
     const [selectedSpread, setSelectedSpread] = useState('');  // this is selecting the spread - 3 or 10
-    const [selectedTopic, setSelectedTopic] = useState('');     // this is selecting the topic - does nothing atm 
-    const [cards, setCards] = useState(null);
+    // const [selectedTopic, setSelectedTopic] = useState('');     // this is selecting the topic - does nothing atm 
+    const [cards, setCards] = useState(null);   
 
 
     const handleSpreadChange = (event) => {
         setSelectedSpread(event.target.value);
     }
 
-    const handleTopicChange = event => {
-        setSelectedTopic(event.target.value);
-    }
+    // const handleTopicChange = event => {
+    //     setSelectedTopic(event.target.value);
+    // }
 
 
-    const handleSubmit = () => {
-        // setCards([]);
-        // setSelectedTopic("");
-    };
+    // const handleSubmit = () => {
+    //     evt.preventDefault()
+
+    // };
+
+
+    const handleSaveSpread = async () => {
+        
+        const cardInReading = cards.map((card, index) => {
+            return {
+                card, reversed:true, position:index
+            }
+        })
+        
+        const newReading = {
+
+            cardReadings: cardInReading
+        }
+        const response = await fetch("/api/readings", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newReading),
+        });
+    
+        if (response.ok) {
+      
+        } else {
+          // return error stuff
+        }
+      };
 
     useEffect(() => {
         const fetchData = async () => {
             console.log("Fetching...");
             let apiLink = "";
             if (selectedSpread === "three-card") {
-                apiLink = "https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=3";
+                apiLink = "/api/reading/3";
             } else if (selectedSpread === "celtic-cross") {
-                apiLink = "https://tarot-api-3hv5.onrender.com/api/v1/cards/random?n=10";
+                apiLink = "/api/reading/10";
             }
 
             if (apiLink) {
                 const data = fetch(apiLink)
                 .then((res) => res.json())
-                .then((info) => {setCards(info.cards)})
-
-                console.log("data from API:", data);
-                setCards(data);
+                .then((info) => {
+                    setCards(info)})
             }
         };
-        console.log(useEffect);
 
         fetchData();
     }, [selectedSpread]);
@@ -53,7 +78,13 @@ const ReadingContainer = () => {
 
             <div className="reading-container">
 
-                <div>
+            {cards ? <Spread
+                    spread={selectedSpread}
+                    onSaveSpread={handleSaveSpread}
+                    cards={cards}
+                /> : null}
+
+                <div className="reading-dropdown">
                     <select value={selectedSpread} onChange={handleSpreadChange}>
                         <option value="">Select A Spread</option>
                         <option value="three-card">Three-Card Spread</option>
@@ -61,7 +92,7 @@ const ReadingContainer = () => {
                     </select>
                     {/* {cards.length > 0 && <Card card={cards} />} */}
                 </div>
-
+{/* 
                 <select value={selectedTopic} onChange={handleTopicChange}>
                     <option value="">Select A Topic</option>
                     <option value='love'>love</option>
@@ -69,19 +100,15 @@ const ReadingContainer = () => {
                     <option value='work'>work</option>
                     <option value='code'>code</option>
                     <option value='money'>money</option>
-                </select>
+                </select> */}
 {/* 
                 <button type="submit" onClick={handleSubmit}>
                     Get a Reading
                 </button> */}
 
-                {cards ? <Spread
-                    spread={selectedSpread}
-                    topic={selectedTopic}
-                    cards={cards}
-                /> : null}
 
-                <Reading />
+
+                {cards ? <Reading cards={cards} /> : null}
             </div>
         </>
     );

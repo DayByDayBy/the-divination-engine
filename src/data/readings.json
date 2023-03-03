@@ -1,0 +1,56 @@
+{
+    "id": 20,
+    "cardReadings": [
+        {
+            "id": 7,
+            "card": {
+                "id": 62,
+                "type": "minor",
+                "suit": "pentacles",
+                "nameShort": "pe08",
+                "name": "Eight of Pentacles",
+                "value": "eight",
+                "intValue": 8,
+                "meaningUp": "Work, employment, commission, craftsmanship, skill in craft and business, perhaps in the preparatory stage.",
+                "meaningRev": "Voided ambition, vanity, cupidity, exaction, usury. It may also signify the possession of skill, in the sense of the ingenious mind turned to cunning and intrigue.",
+                "description": "An artist in stone at his work, which he exhibits in the form of trophies."
+            },
+            "position": 2,
+            "reversed": true
+        },
+        {
+            "id": 6,
+            "card": {
+                "id": 63,
+                "type": "minor",
+                "suit": "pentacles",
+                "nameShort": "pe09",
+                "name": "Nine of Pentacles",
+                "value": "nine",
+                "intValue": 9,
+                "meaningUp": "Prudence, safety, success, accomplishment, certitude, discernment.",
+                "meaningRev": "Roguery, deception, voided project, bad faith.",
+                "description": "A woman, with a bird upon her wrist, stands amidst a great abundance of grapevines in the garden of a manorial house. It is a wide domain, suggesting plenty in all things. Possibly it is her own possession and testifies to material well-being."
+            },
+            "position": 1,
+            "reversed": true
+        },
+        {
+            "id": 5,
+            "card": {
+                "id": 64,
+                "type": "minor",
+                "suit": "pentacles",
+                "nameShort": "pe10",
+                "name": "Ten of Pentacles",
+                "value": "ten",
+                "intValue": 10,
+                "meaningUp": "Gain, riches; family matters, archives, extraction, the abode of a family.",
+                "meaningRev": "Chance, fatality, loss, robbery, games of hazard; sometimes gift, dowry, pension.",
+                "description": "A man and woman beneath an archway which gives entrance to a house and domain. They are accompanied by a child, who looks curiously at two dogs accosting an ancient personage seated in the foreground. The child's hand is on one of them."
+            },
+            "position": 0,
+            "reversed": true
+        }
+    ]
+},
