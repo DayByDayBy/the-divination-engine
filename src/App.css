@@ -6,6 +6,17 @@ body{
   align-items: center;
   min-height: 80vh;
   text-align:center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight:bolder;
+}
+
+ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+li{
+  list-style: none;
 }
 
 h1{
@@ -48,6 +59,13 @@ p{
   }
 }
 
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  width:90vw;
+}
+
 .card-object{
   display: flex;
   align-content:space-between;
@@ -88,9 +106,14 @@ p{
 
 .reading-container{
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 60vh;
+  width: 90vh;
+}
+
+.reading-dropdown{
+  justify-content: center;
 }
 
 select{

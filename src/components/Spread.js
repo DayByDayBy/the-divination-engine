@@ -2,13 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Reading from "./Reading";
 
-
-
-
-
-    
-
-const Spread = ({ cards, handleSaveSpread }) => {
+const Spread = ({ cards, onSaveSpread }) => {
     const threeCardPosition = 
     [
         "Past", 

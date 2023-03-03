@@ -25,16 +25,27 @@ const ReadingContainer = () => {
 
 
     const handleSaveSpread = async () => {
+        
+        const cardInReading = cards.map((card, index) => {
+            return {
+                card, reversed:true, position:index
+            }
+        })
+        
+        const newReading = {
+
+            cardReadings: cardInReading
+        }
         const response = await fetch("/api/readings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(cards),
+          body: JSON.stringify(newReading),
         });
     
         if (response.ok) {
-        window.r
+      
         } else {
           // return error stuff
         }
@@ -73,7 +84,7 @@ const ReadingContainer = () => {
                     cards={cards}
                 /> : null}
 
-                <div>
+                <div className="reading-dropdown">
                     <select value={selectedSpread} onChange={handleSpreadChange}>
                         <option value="">Select A Spread</option>
                         <option value="three-card">Three-Card Spread</option>
@@ -98,7 +109,6 @@ const ReadingContainer = () => {
 
 
                 {cards ? <Reading cards={cards} /> : null}
-
             </div>
         </>
     );

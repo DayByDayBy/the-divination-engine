@@ -1,14 +1,26 @@
-import React, { useEffect, useState } from "react";
-import './App.css';
+import React from "react";
+import NavBar from "./components/NavBar";
 import ReadingContainer from "./containers/ReadingContainer";
+import ArchiveContainer from "./containers/ArchiveContainer";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import MainContainer from "./containers/ReadingContainer";
 
 function App() {
   return (
-    <>
-    <h1>The DIVINATION ENGINE</h1>
-    <ReadingContainer />
-    </>
+    <Router>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<MainContainer />} />
+        <Route path="/reading" element={<ReadingContainer />} />
+        <Route path="/archive" element={< ArchiveContainer />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
+
+
+
