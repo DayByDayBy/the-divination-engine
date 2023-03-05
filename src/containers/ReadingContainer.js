@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Spread from "../components/Spread";
 import Reading from "../components/Reading";
-import Card from "../components/Card";
 
 const ReadingContainer = () => {
     const [selectedSpread, setSelectedSpread] = useState('');  // this is selecting the spread - 3 or 10
@@ -53,19 +52,18 @@ const ReadingContainer = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log("Fetching...");
             let apiLink = "";
             if (selectedSpread === "three-card") {
                 apiLink = "/api/reading/3";
             } else if (selectedSpread === "celtic-cross") {
                 apiLink = "/api/reading/10";
             }
-
             if (apiLink) {
                 const data = fetch(apiLink)
                 .then((res) => res.json())
                 .then((info) => {
                     setCards(info)})
+                   
             }
         };
 
@@ -78,13 +76,7 @@ const ReadingContainer = () => {
 
             <div className="reading-container">
 
-            {cards ? <Spread
-                    spread={selectedSpread}
-                    onSaveSpread={handleSaveSpread}
-                    cards={cards}
-                /> : null}
-
-                <div className="reading-dropdown">
+            <div className="reading-dropdown">
                     <select value={selectedSpread} onChange={handleSpreadChange}>
                         <option value="">Select A Spread</option>
                         <option value="three-card">Three-Card Spread</option>
@@ -92,6 +84,14 @@ const ReadingContainer = () => {
                     </select>
                     {/* {cards.length > 0 && <Card card={cards} />} */}
                 </div>
+
+            {cards ? <Spread
+                    spread={selectedSpread}
+                    onSaveSpread={handleSaveSpread}
+                    cards={cards}
+                /> : null}
+
+                
 {/* 
                 <select value={selectedTopic} onChange={handleTopicChange}>
                     <option value="">Select A Topic</option>
@@ -109,6 +109,10 @@ const ReadingContainer = () => {
 
 
                 {cards ? <Reading cards={cards} /> : null}
+
+
+
+                
             </div>
         </>
     );

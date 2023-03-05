@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainContainer />} />
         <Route path="/reading" element={<ReadingContainer />} />
-        <Route path="/archive" element={< ArchiveContainer />} />
+        <Route path="/readings/all" element={< ArchiveContainer />} />
       </Routes>
     </Router>
   );

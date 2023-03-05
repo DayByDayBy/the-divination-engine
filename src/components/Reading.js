@@ -1,7 +1,5 @@
 import React from "react";
-import ReadingContainer from "../containers/ReadingContainer";
-import Card from "./Card";
-import Spread from "./Spread";
+
 
 
 

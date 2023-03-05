@@ -40,10 +40,10 @@ p{
   padding: 0;
 }
 
-
 .spread{
+  background-color: #fffaf389;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-family: inherit;
   font-weight: bold;
   border: 1px solid grey;
@@ -92,12 +92,12 @@ p{
 
 .meanings{
   display: flex;
-  max-width: 30vw;
-  flex-direction: column;
+  justify-content: center;
   justify-content: space-evenly;
 }
 .meaning{
   display: flex;
+  width: 33%;
   flex-direction: column;
   padding: 0 1rem;
   margin: 0rem 1rem;
@@ -108,14 +108,19 @@ p{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
-  width: 90vh;
-}
-
-.reading-dropdown{
-  justify-content: center;
+  width: 100vw;
 }
 
 select{
-  width: 15vh;
+  border-radius: 1rem;
+  margin: .75rem;
+  padding: 0 4rem;
+  background-color: hsla(160, 19%, 88%, .9);
+  text-align: center;
+}
+
+input{
+  margin: .75rem;
+  border-radius: 2rem;
+  background-color: hsla(158, 18%, 88%, 0.9);
 }

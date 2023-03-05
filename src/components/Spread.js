@@ -35,7 +35,6 @@ const Spread = ({ cards, onSaveSpread }) => {
             } else {
                 cardDescription = tenCardPosition[index];
             }
-
             return <Card card={card} cardDescription={cardDescription} />
         });
     }
