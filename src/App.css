@@ -40,7 +40,22 @@ p{
   padding: 0;
 }
 
+
+/* spread-stuff */
 .spread{
+  background-color: #fffaf389;
+  display: grid;
+  justify-self:center;
+  max-width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+  border: solid rgb(54, 160, 42);
+  border-radius: 1rem;
+  padding: 2rem;
+  font-weight: 800;
+  font-variant:small-caps;
+  }
+
+/* .spread-ten{
   background-color: #fffaf389;
   display: flex;
   justify-content: space-between;
@@ -50,7 +65,8 @@ p{
   border-radius: 1rem;
   padding: 2rem;
   max-width: 1600px;
-}
+} */
+
 
 @media (max-width: 400px) {
   .spread {
@@ -67,9 +83,9 @@ p{
 }
 
 .card-object{
-  display: flex;
+  display: grid;
+  justify-content: center;
   align-content:space-between;
-  border: 1px dotted grey;
   border-radius: 1rem;
   padding: 1rem;
   margin: .5rem;
@@ -92,6 +108,8 @@ p{
 
 .meanings{
   display: flex;
+  font-weight: 300;
+  font-size: .75rem;
   justify-content: center;
   justify-content: space-evenly;
 }
@@ -105,10 +123,9 @@ p{
 }
 
 .reading-container{
-  display: flex;
+  display: grid;
   justify-content: center;
-  flex-direction: column;
-  width: 100vw;
+  grid-template-rows: min-content;  
 }
 
 select{
@@ -123,4 +140,15 @@ input{
   margin: .75rem;
   border-radius: 2rem;
   background-color: hsla(158, 18%, 88%, 0.9);
+}
+
+.archive-item{
+display: inline-grid;
+grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+border: solid rgb(255, 88, 255);
+border-radius: 1rem 1rem 0 0;
+grid-template-rows: 5;
+padding: 1rem;
+font-weight: 900;
+font-variant:small-caps;
 }

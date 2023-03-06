@@ -7,7 +7,6 @@ const ReadingContainer = () => {
     // const [selectedTopic, setSelectedTopic] = useState('');     // this is selecting the topic - does nothing atm 
     const [cards, setCards] = useState(null);   
 
-
     const handleSpreadChange = (event) => {
         setSelectedSpread(event.target.value);
     }
