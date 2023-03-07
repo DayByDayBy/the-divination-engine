@@ -10,6 +10,16 @@ body{
   font-weight:bolder;
 }
 
+a:link {
+  color: 344, 17%, 74%, 0.8;}
+a:visited {
+  color: hsl(120, 100%, 25%, 0.4);}
+a:hover {
+  color: hsla(330, 49%, 51%, 0.809);}
+a:active {
+  color:hsl(33, 100%, 88%, 0.8)}
+  
+
 ul{
   display: flex;
   justify-content: space-between;
@@ -77,10 +87,16 @@ p{
 
 .navbar{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: small;
-  width:90vw;
+  width:100vw;
+  height: 10vh;
+  background-color: rgba(344, 232, 233, 0.3);
+  position:fixed;
+  top: 0;
+  right:0;
 }
+
 
 .card-object{
   display: grid;
@@ -100,6 +116,17 @@ p{
   border: solid black;
   padding: .5rem;
   border-radius: 1rem;
+}
+.card-reverse{
+  background-image: url('./images/z-back.jpg');
+  background-size: 110%;
+  background-position: center;
+  height:250px;
+  width:150px;
+  border: solid black;
+  padding: .5rem;
+  border-radius: 1rem;
+  transform: rotate(180deg);
 }
 
 .cardDescription{
@@ -145,7 +172,7 @@ input{
 .archive-item{
 display: inline-grid;
 grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
-border: solid rgb(255, 88, 255);
+border: solid hsla(344, 17%, 74%, 0.8);
 border-radius: 1rem 1rem 0 0;
 grid-template-rows: 5;
 padding: 1rem;

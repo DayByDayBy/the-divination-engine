@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import Reading from "./Reading";
 
-const Spread = ({ cards, onSaveSpread }) => {
+// const Spread = ({ cards, onSaveSpread }) => {
+const Spread = ({ cards }) => {
     const threeCardPosition = 
     [
         "Past", 
@@ -35,24 +36,25 @@ const Spread = ({ cards, onSaveSpread }) => {
             } else {
                 cardDescription = tenCardPosition[index];
             }
+            console.log(card.reversed);
             return <Card card={card} cardDescription={cardDescription} />
         });
     }
 
-    const handleSaveSpread = () => {
-        onSaveSpread(cards);
-      };
+    // const handleSaveSpread = () => {
+    //     onSaveSpread(cards);
+    //   };
 
 
     return (
         <>
             <div className="spread">{cardsForRender}</div>
 
-            <input type="submit" 
+            {/* <input type="submit" 
             name="submit" 
             value="Save This Spread" 
             onClick={handleSaveSpread} 
-            />
+            /> */}
     
 
         </>

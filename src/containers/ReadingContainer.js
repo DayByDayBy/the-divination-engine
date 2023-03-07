@@ -21,25 +21,23 @@ const ReadingContainer = () => {
 
     // };
 
-
     const handleSaveSpread = async () => {
-        
         const cardInReading = cards.map((card, index) => {
+            // const reversed = Math.random() < 0.5; 
             return {
-                card, reversed:true, position:index
+                card
             }
         })
         
         const newReading = {
 
-            cardReadings: cardInReading
         }
         const response = await fetch("/api/readings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newReading),
+          body: JSON.stringify(newReading.cardReadings),
         });
     
         if (response.ok) {
@@ -61,7 +59,14 @@ const ReadingContainer = () => {
                 const data = fetch(apiLink)
                 .then((res) => res.json())
                 .then((info) => {
-                    setCards(info)})
+                    const cardReadings = info.map((card, index) => {
+                        return {
+                            reversed: Math.random() < 0.5,
+                            position: index,
+                            card: card
+                        }
+                    })
+                    setCards(cardReadings)})
                    
             }
         };
@@ -86,9 +91,16 @@ const ReadingContainer = () => {
 
             {cards ? <Spread
                     spread={selectedSpread}
-                    onSaveSpread={handleSaveSpread}
                     cards={cards}
                 /> : null}
+            
+            {cards ? <input type="submit" 
+                        name="submit" 
+                        value="Save This Spread" 
+                        onClick={handleSaveSpread} 
+                        />
+                    : null
+            }
 
                 
 {/* 

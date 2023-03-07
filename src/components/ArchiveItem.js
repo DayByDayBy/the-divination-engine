@@ -1,13 +1,20 @@
 import React from "react";
+import Spread from "./Spread";
 
 
 const ArchiveItem = ({reading}) => {
 
-    console.log(reading);
+    return (
+    
+    
+    <>
 
-    return (<>
+        <Spread cards={reading.cardReadings} onSaveSpread={() => {}} />
 
-        <p>hello</p>
+
+
+
+
 
     </>
     )
