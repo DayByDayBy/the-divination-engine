@@ -36,7 +36,6 @@ const Spread = ({ cards }) => {
             } else {
                 cardDescription = tenCardPosition[index];
             }
-            console.log(card.reversed);
             return <Card card={card} cardDescription={cardDescription} />
         });
     }
@@ -48,7 +47,8 @@ const Spread = ({ cards }) => {
 
     return (
         <>
-            <div className="spread">{cardsForRender}</div>
+            <div className={ cardsForRender.length < 4 ? "spread-three" : "spread-ten"}>
+                {cardsForRender}</div>
 
             {/* <input type="submit" 
             name="submit" 

@@ -52,7 +52,7 @@ p{
 
 
 /* spread-stuff */
-.spread{
+.spread-three{
   background-color: #fffaf389;
   display: grid;
   justify-self:center;
@@ -65,17 +65,20 @@ p{
   font-variant:small-caps;
   }
 
-/* .spread-ten{
-  background-color: #fffaf389;
-  display: flex;
-  justify-content: space-between;
-  font-family: inherit;
-  font-weight: bold;
-  border: 1px solid grey;
+.spread-ten{
+
+  background-color: #14131389;
+  display: grid;
+  justify-self:center;
+  max-width: 90%;
+  grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+  border: solid rgb(54, 160, 42);
   border-radius: 1rem;
   padding: 2rem;
-  max-width: 1600px;
-} */
+  font-weight: 800;
+  font-variant:small-caps;
+
+}
 
 
 @media (max-width: 400px) {
