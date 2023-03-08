@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect, handleDelete } from 'react';
+import { useState, useEffect } from 'react';
 import ArchivedReadingList from './ArchivedReadingList';
 import { Routes, Route, useParams } from "react-router-dom";
 import ArchiveItem from './ArchiveItem';
@@ -21,25 +21,26 @@ const ReadingArchive = () => {
   
 
     const handleDeleteReading = (readingId) => {
-        fetch(`/readings/${readingId}`, {
+      console.log("Deleting reading with ID", readingId);
+        fetch(`/api/readings/${readingId}`, {
             method: "DELETE"
         })
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    setReadings(readings.filter(reading => reading._id !== readingId));
+                    setReadings(readings.filter(reading => reading.id !== readingId));
                 }
+                window.location = '/archive'
             });
     };
 
     // const readingsForRender = readings.map((reading, index) => {
     //     return <ArchivedReadingList key={reading.id} reading={reading} index={index} onDelete={handleDeleteReading} />;
     // });
-    // console.log(readingsForRender);
 
 
 
-const RenderArchiveItem = () => {
+const RenderArchiveItem = ({onDelete}) => {
   const { id } = useParams();
   let chosenReading = {}
 
@@ -48,22 +49,17 @@ const RenderArchiveItem = () => {
       chosenReading = reading
     }
   }
-
-  return <ArchiveItem reading={chosenReading} handleDelete={handleDelete} />;
+  return <ArchiveItem reading={chosenReading} id={id} onDelete={onDelete} />;
 };
 
   return (
-    // <>
-    //   <h2>i am an archive of all your readings to date</h2>
-    //   {/* {readingsForRender} */}
-    //   <ArchivedReadingList readings={readings} onDelete={handleDeleteReading} />
-      
-    // </>
+
     <>
-      <h2>i am an archive of all your readings to date</h2>
+     
       <Routes>
-        <Route path="/" element={ <ArchivedReadingList readings={readings} onDelete={handleDeleteReading} /> } />
-        <Route path="/:id" element={ <RenderArchiveItem /> } />
+        <Route path="/" element={ <ArchivedReadingList readings={readings} handleDeleteReading={handleDeleteReading} /> } />
+        <Route path="/:id" element={<RenderArchiveItem onDelete={handleDeleteReading}/>} />
+
       </Routes>
     </>
   )

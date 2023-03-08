@@ -5,7 +5,7 @@ import Reading from "../components/Reading";
 const ReadingContainer = () => {
     const [selectedSpread, setSelectedSpread] = useState('');  // this is selecting the spread - 3 or 10
     // const [selectedTopic, setSelectedTopic] = useState('');     // this is selecting the topic - does nothing atm 
-    const [cards, setCards] = useState(null);   
+    const [cards, setCards] = useState(null);
 
     const handleSpreadChange = (event) => {
         setSelectedSpread(event.target.value);
@@ -16,36 +16,22 @@ const ReadingContainer = () => {
     // }
 
 
-    // const handleSubmit = () => {
-    //     evt.preventDefault()
-
-    // };
 
     const handleSaveSpread = async () => {
-        const cardInReading = cards.map((card, index) => {
-            // const reversed = Math.random() < 0.5; 
-            return {
-                card
-            }
-        })
-        
         const newReading = {
+            cardReadings: cards
+        }
 
-        }
-        const response = await fetch("/api/readings", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newReading.cardReadings),
+        await fetch("/api/readings", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newReading),
         });
-    
-        if (response.ok) {
-      
-        } else {
-          // return error stuff
-        }
-      };
+
+        window.location = '/'
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -57,17 +43,18 @@ const ReadingContainer = () => {
             }
             if (apiLink) {
                 const data = fetch(apiLink)
-                .then((res) => res.json())
-                .then((info) => {
-                    const cardReadings = info.map((card, index) => {
-                        return {
-                            reversed: Math.random() < 0.5,
-                            position: index,
-                            card: card
-                        }
+                    .then((res) => res.json())
+                    .then((info) => {
+                        const cardReadings = info.map((card, index) => {
+                            return {
+                                reversed: Math.random() < 0.5,
+                                position: index,
+                                card: card
+                            }
+                        })
+                        setCards(cardReadings)
                     })
-                    setCards(cardReadings)})
-                   
+
             }
         };
 
@@ -77,10 +64,9 @@ const ReadingContainer = () => {
 
     return (
         <>
-
             <div className="reading-container">
 
-            <div className="reading-dropdown">
+                <div className="reading-dropdown">
                     <select value={selectedSpread} onChange={handleSpreadChange}>
                         <option value="">Select A Spread</option>
                         <option value="three-card">Three-Card Spread</option>
@@ -89,21 +75,21 @@ const ReadingContainer = () => {
                     {/* {cards.length > 0 && <Card card={cards} />} */}
                 </div>
 
-            {cards ? <Spread
+                {cards ? <Spread
                     spread={selectedSpread}
                     cards={cards}
                 /> : null}
-            
-            {cards ? <input type="submit" 
-                        name="submit" 
-                        value="Save This Spread" 
-                        onClick={handleSaveSpread} 
-                        />
-                    : null
-            }
 
-                
-{/* 
+                {cards ? <input type="submit"
+                    name="submit"
+                    value="Save This Spread"
+                    onClick={handleSaveSpread}
+                />
+                    : null
+                }
+
+
+                {/* 
                 <select value={selectedTopic} onChange={handleTopicChange}>
                     <option value="">Select A Topic</option>
                     <option value='love'>love</option>
@@ -112,7 +98,7 @@ const ReadingContainer = () => {
                     <option value='code'>code</option>
                     <option value='money'>money</option>
                 </select> */}
-{/* 
+                {/* 
                 <button type="submit" onClick={handleSubmit}>
                     Get a Reading
                 </button> */}
@@ -123,7 +109,7 @@ const ReadingContainer = () => {
 
 
 
-                
+
             </div>
         </>
     );

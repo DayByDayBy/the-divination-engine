@@ -6,30 +6,31 @@ import Reading from "./Reading";
 const Spread = ({ cards }) => {
     const threeCardPosition = 
     [
-        "Past", 
-        "Present", 
-        "Future"
+        "past", 
+        "present", 
+        "future"
     ];
     const tenCardPosition = 
     [
-        "The Heart of The Matter", 
-        "What's Crossing You",
-        "The Root Cause",
-        "The Recent Past",
-        "Possible Outcome",
-        "Immediate Future",
-        "You/The Querent",
-        "The Querent's Environment",
-        "Hopes and Fears",
-        "The Outcome"
+        "the heart of the matter", 
+        "what's Crossing You",
+        "the root cause",
+        "the recent past",
+        "possible outcome",
+        "immediate future",
+        "you/the querent",
+        "the Querent's environment",
+        "hopes and fears",
+        "the outcome"
     ];
 
-    let cardsForRender
-
+    let cardsForRender = []
+    console.log(cardsForRender);
     if(cards.length > 0){
         cardsForRender = cards.map((card, index) => {
             console.log(card);
             let cardDescription = null;
+
 
             if (cards.length === 3) {
                 cardDescription = threeCardPosition[index];
@@ -38,17 +39,19 @@ const Spread = ({ cards }) => {
             }
             return <Card card={card} cardDescription={cardDescription} />
         });
+       
     }
 
     // const handleSaveSpread = () => {
     //     onSaveSpread(cards);
     //   };
 
-
+ 
     return (
         <>
             <div className={ cardsForRender.length < 4 ? "spread-three" : "spread-ten"}>
-                {cardsForRender}</div>
+                {cardsForRender}
+            </div>
 
             {/* <input type="submit" 
             name="submit" 

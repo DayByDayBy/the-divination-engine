@@ -8,13 +8,14 @@ const ArchivedReading = ({ reading, index, onDelete }) => {
     const viewReading = () => {
         navigate(`/archive/${reading.id}`);
     }
+    
 
     return (
         <>
 
             <p>Reading {index + 1}</p>
-            <button onClick={viewReading}>View</button>
-            {/* <button onClick={onDelete}>Delete</button> */}
+            <button className="save-button" onClick={viewReading}>View</button>
+            <button className="delete-button" onClick={onDelete}>Delete</button>
 
         </>
     )
