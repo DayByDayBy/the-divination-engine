@@ -8,7 +8,9 @@ const ArchiveItem = ({reading }) => {
     
     
     <>
+       <div className="reading-container">
         <Spread cards={reading.cardReadings} onSaveSpread={() => {}} />
+        </div>
     </>
     )
 }

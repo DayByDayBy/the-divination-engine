@@ -64,6 +64,8 @@ const ReadingContainer = () => {
 
     return (
         <>
+                 <h1>The DIVINATION ENGINE</h1>
+
             <div className="reading-container">
 
                 <div className="reading-dropdown">

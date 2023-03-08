@@ -17,7 +17,7 @@ const NavBar = () =>{
         </li>
 
       </ul>
-      <img src="../logo.png" alt="Logo" width="80"/> 
+      <img src="../logo.png" alt="Logo" width="150"/> 
     </header>
     </>
     )

@@ -4,8 +4,7 @@ import ArchivedReading from "./ArchivedReading";
 
 
 const ArchivedReadingList = ({ readings, handleDeleteReading }) => {
-    console.log('handleDeleteReading:', handleDeleteReading);
-
+    // console.log('handleDeleteReading:', handleDeleteReading);
 
     const readingsForRender = readings.map(( reading, index ) => {
         return (

@@ -3,11 +3,15 @@ import ReadingArchive from "../components/ReadingArchive";
 
 const ArchiveContainer = () => {
     return(
+<>
+        <h1>The DIVINATION ENGINE</h1>
 
-    <div className="reading-container">
        <ReadingArchive />
-    </div>
+
+       </>
+
     )
+
 }
 
 
