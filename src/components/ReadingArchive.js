@@ -55,7 +55,6 @@ const RenderArchiveItem = ({onDelete}) => {
   return (
 
     <>
-     
       <Routes>
         <Route path="/" element={ <ArchivedReadingList readings={readings} handleDeleteReading={handleDeleteReading} /> } />
         <Route path="/:id" element={<RenderArchiveItem onDelete={handleDeleteReading}/>} />

@@ -46,7 +46,6 @@ const Spread = ({ cards }) => {
     //     onSaveSpread(cards);
     //   };
 
- 
     return (
         <>
             <div className={ cardsForRender.length < 4 ? "spread-three" : "spread-ten"}>
@@ -58,8 +57,6 @@ const Spread = ({ cards }) => {
             value="Save This Spread" 
             onClick={handleSaveSpread} 
             /> */}
-    
-
         </>
     );
 }

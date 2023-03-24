@@ -21,7 +21,6 @@ const ReadingContainer = () => {
         const newReading = {
             cardReadings: cards
         }
-
         await fetch("/api/readings", {
             method: "POST",
             headers: {
@@ -29,7 +28,6 @@ const ReadingContainer = () => {
             },
             body: JSON.stringify(newReading),
         });
-
         window.location = '/'
     };
 
@@ -54,7 +52,6 @@ const ReadingContainer = () => {
                         })
                         setCards(cardReadings)
                     })
-
             }
         };
 
