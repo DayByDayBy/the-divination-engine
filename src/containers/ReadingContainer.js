@@ -61,13 +61,13 @@ const ReadingContainer = () => {
 
     return (
         <>
-                 <h1>The DIVINATION ENGINE</h1>
+                 <h1> The DIVINATION ENGINE </h1>
 
             <div className="reading-container">
 
                 <div className="reading-dropdown">
                     <select value={selectedSpread} onChange={handleSpreadChange}>
-                        <option value="">Select A Spread</option>
+                        <option value="">Select A Spread:</option>
                         <option value="three-card">Three-Card Spread</option>
                         <option value="celtic-cross">Celtic Cross Spread</option>
                     </select>
