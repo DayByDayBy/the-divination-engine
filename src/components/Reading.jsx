@@ -5,9 +5,9 @@ const Reading = ({ cards = [] }) => {
     return (
 
         <div className="meanings">
-            {cards.map(card => {
+            {cards.map((card, index) => {
                 return (
-                    <div className = "meaning">
+                    <div key={index} className = "meaning">
                         <h3>{card.card.name}</h3>
                         <p>{card.reversed ? card.card.meaningRev : card.card.meaningUp }</p>
                     </div>
