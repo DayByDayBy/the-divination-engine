@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Spread from "../components/Spread";
 import Reading from "../components/Reading";
+import { readingAPI } from "../services/api";
 
 const ReadingContainer = () => {
     const [selectedSpread, setSelectedSpread] = useState('');
@@ -11,40 +12,40 @@ const ReadingContainer = () => {
     }
 
     const handleSaveSpread = async () => {
-        const newReading = {
-            cardReadings: cards
+        try {
+            const newReading = {
+                cardReadings: cards
+            };
+            await readingAPI.createReading(newReading);
+            window.location = '/';
+        } catch (error) {
+            console.error('Error saving reading:', error);
         }
-        await fetch("/api/readings", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newReading),
-        });
-        window.location = '/'
     };
 
     useEffect(() => {
         const fetchData = async () => {
-            let apiLink = "";
+            let cardCount = 0;
             if (selectedSpread === "three-card") {
-                apiLink = "/api/reading/3";
+                cardCount = 3;
             } else if (selectedSpread === "celtic-cross") {
-                apiLink = "/api/reading/10";
+                cardCount = 10;
             }
-            if (apiLink) {
-                fetch(apiLink)
-                    .then((res) => res.json())
-                    .then((info) => {
-                        const cardReadings = info.map((card, index) => {
-                            return {
-                                reversed: Math.random() < 0.5,
-                                position: index,
-                                card: card
-                            }
-                        })
-                        setCards(cardReadings)
-                    })
+            
+            if (cardCount > 0) {
+                try {
+                    const cardsData = await readingAPI.getRandomCards(cardCount);
+                    const cardReadings = cardsData.map((card, index) => {
+                        return {
+                            reversed: Math.random() < 0.5,
+                            position: index,
+                            card: card
+                        };
+                    });
+                    setCards(cardReadings);
+                } catch (error) {
+                    console.error('Error fetching cards:', error);
+                }
             }
         };
 
@@ -74,6 +75,7 @@ const ReadingContainer = () => {
                 {cards ? <input type="submit"
                     name="submit"
                     value="Save This Spread"
+                    onClick={handleSaveSpread}
                 />
                     : null
                 }

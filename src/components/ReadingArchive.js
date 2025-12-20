@@ -3,35 +3,35 @@ import { useState, useEffect } from 'react';
 import ArchivedReadingList from './ArchivedReadingList';
 import { Routes, Route, useParams } from "react-router-dom";
 import ArchiveItem from './ArchiveItem';
+import { readingAPI } from '../services/api';
 
 const ReadingArchive = () => {
   const [readings, setReadings] = useState([]);
 
   useEffect(() => {
-    fetch("/api/readings")
-      .then(response => response.json())
-      .then(data => {
+    const fetchReadings = async () => {
+      try {
+        const data = await readingAPI.getAllReadings();
         console.log(data);
         setReadings(data);
-      })
-      .catch(error => {
-        console.log(error); 
-      });
+      } catch (error) {
+        console.error('Error fetching readings:', error);
+      }
+    };
+    
+    fetchReadings();
   }, []);
   
 
-    const handleDeleteReading = (readingId) => {
+    const handleDeleteReading = async (readingId) => {
       console.log("Deleting reading with ID", readingId);
-        fetch(`/api/readings/${readingId}`, {
-            method: "DELETE"
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    setReadings(readings.filter(reading => reading.id !== readingId));
-                }
-                window.location = '/archive'
-            });
+      try {
+        await readingAPI.deleteReading(readingId);
+        setReadings(readings.filter(reading => reading.id !== readingId));
+        window.location = '/archive';
+      } catch (error) {
+        console.error('Error deleting reading:', error);
+      }
     };
 
     // const readingsForRender = readings.map((reading, index) => {
