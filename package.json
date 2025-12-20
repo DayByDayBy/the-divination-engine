@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.1",
-    "@testing-library/user-event": "^14.6.1",
+    "prop-types": "^15.8.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-router-dom": "^7.11.0",
@@ -15,7 +13,10 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "vite"
+    "start": "vite",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
   },
   "eslintConfig": {
     "extends": [
@@ -37,7 +38,14 @@
   },
   "proxy": "http://localhost:8080",
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
+    "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react-swc": "^4.2.2",
-    "vite": "^7.3.0"
+    "@vitest/ui": "^4.0.16",
+    "jsdom": "^27.3.0",
+    "msw": "^2.12.4",
+    "vite": "^7.3.0",
+    "vitest": "^4.0.16"
   }
 }

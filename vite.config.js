@@ -25,4 +25,14 @@ export default defineConfig({
       },
     },
   },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: ['./src/test/setup.js'],
+    include: ['src/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    esbuild: {
+      loader: 'jsx',
+      include: /src\/.*\.[jt]sx?$/,
+    },
+  },
 })

@@ -1,5 +1,5 @@
 import React from "react";
-import ReadingArchive from "../components/ReadingArchive";
+import ReadingArchive from "../components/ReadingArchive.jsx";
 
 const ArchiveContainer = () => {
     return(

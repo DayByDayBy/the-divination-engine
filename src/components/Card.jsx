@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Card = ({ card, cardDescription }) => {
     const imgPath = require(`../images/${card.card.nameShort}.jpg`);
@@ -16,5 +17,16 @@ const Card = ({ card, cardDescription }) => {
         </>
     );
 }
+
+Card.propTypes = {
+    card: PropTypes.shape({
+        card: PropTypes.shape({
+            nameShort: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired
+        }).isRequired,
+        reversed: PropTypes.bool.isRequired
+    }).isRequired,
+    cardDescription: PropTypes.string
+};
 
 export default Card;

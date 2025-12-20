@@ -1,5 +1,6 @@
 import React from "react";
-import Spread from "./Spread";
+import PropTypes from "prop-types";
+import Spread from "./Spread.jsx";
 
 
 const ArchiveItem = ({reading }) => {
@@ -14,6 +15,11 @@ const ArchiveItem = ({reading }) => {
     </>
     )
 }
-  
+
+ArchiveItem.propTypes = {
+    reading: PropTypes.shape({
+        cardReadings: PropTypes.array
+    }).isRequired
+};
 
 export default ArchiveItem;

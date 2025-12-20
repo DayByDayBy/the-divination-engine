@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Spread from "../components/Spread";
-import Reading from "../components/Reading";
+import Spread from "../components/Spread.jsx";
+import Reading from "../components/Reading.jsx";
 import { readingAPI } from "../services/api";
+import { SPREAD_TYPES, SPREAD_CARD_COUNTS, UI_TEXT, ERROR_MESSAGES } from "../constants/index.js";
 
 const ReadingContainer = () => {
     const [selectedSpread, setSelectedSpread] = useState('');
@@ -19,18 +20,13 @@ const ReadingContainer = () => {
             await readingAPI.createReading(newReading);
             window.location = '/';
         } catch (error) {
-            console.error('Error saving reading:', error);
+            console.error(ERROR_MESSAGES.SAVE_READING_FAILED, error);
         }
     };
 
     useEffect(() => {
         const fetchData = async () => {
-            let cardCount = 0;
-            if (selectedSpread === "three-card") {
-                cardCount = 3;
-            } else if (selectedSpread === "celtic-cross") {
-                cardCount = 10;
-            }
+            const cardCount = SPREAD_CARD_COUNTS[selectedSpread];
             
             if (cardCount > 0) {
                 try {
@@ -44,7 +40,7 @@ const ReadingContainer = () => {
                     });
                     setCards(cardReadings);
                 } catch (error) {
-                    console.error('Error fetching cards:', error);
+                    console.error(ERROR_MESSAGES.FETCH_CARDS_FAILED, error);
                 }
             }
         };
@@ -61,9 +57,9 @@ const ReadingContainer = () => {
 
                 <div className="reading-dropdown">
                     <select value={selectedSpread} onChange={handleSpreadChange}>
-                        <option value="">Select A Spread:</option>
-                        <option value="three-card">Three-Card Spread</option>
-                        <option value="celtic-cross">Celtic Cross Spread</option>
+                        <option value="">{UI_TEXT.SELECT_SPREAD}</option>
+                        <option value={SPREAD_TYPES.THREE_CARD}>{UI_TEXT.THREE_CARD_LABEL}</option>
+                        <option value={SPREAD_TYPES.CELTIC_CROSS}>{UI_TEXT.CELTIC_CROSS_LABEL}</option>
                     </select>
                 </div>
 
@@ -74,7 +70,7 @@ const ReadingContainer = () => {
 
                 {cards ? <input type="submit"
                     name="submit"
-                    value="Save This Spread"
+                    value={UI_TEXT.SAVE_SPREAD}
                     onClick={handleSaveSpread}
                 />
                     : null

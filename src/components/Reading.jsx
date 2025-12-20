@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Reading = ({ cards = [] }) => {
     return (
@@ -15,6 +16,21 @@ const Reading = ({ cards = [] }) => {
         </div>
 
     );
+};
+
+Reading.propTypes = {
+    cards: PropTypes.arrayOf(PropTypes.shape({
+        card: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            meaningUp: PropTypes.string,
+            meaningRev: PropTypes.string
+        }).isRequired,
+        reversed: PropTypes.bool.isRequired
+    }))
+};
+
+Reading.defaultProps = {
+    cards: []
 };
 
 export default Reading;
