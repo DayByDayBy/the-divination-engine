@@ -18,10 +18,12 @@ describe('Archive Flow Integration Tests', () => {
     const mockDelete = vi.fn();
     
     render(
-      <ArchivedReadingList 
-        readings={mockReadings} 
-        handleDeleteReading={mockDelete}
-      />
+      <MemoryRouter>
+        <ArchivedReadingList 
+          readings={mockReadings} 
+          handleDeleteReading={mockDelete}
+        />
+      </MemoryRouter>
     );
 
     expect(screen.getByText('Reading 1')).toBeInTheDocument();
