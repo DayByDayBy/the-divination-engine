@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from "./Card";
-import Reading from "./Reading";
 
-// const Spread = ({ cards, onSaveSpread }) => {
 const Spread = ({ cards }) => {
     const threeCardPosition = 
     [
@@ -42,22 +40,10 @@ const Spread = ({ cards }) => {
        
     }
 
-    // const handleSaveSpread = () => {
-    //     onSaveSpread(cards);
-    //   };
-
     return (
-        <>
-            <div className={ cardsForRender.length < 4 ? "spread-three" : "spread-ten"}>
-                {cardsForRender}
-            </div>
-
-            {/* <input type="submit" 
-            name="submit" 
-            value="Save This Spread" 
-            onClick={handleSaveSpread} 
-            /> */}
-        </>
+        <div className={ cardsForRender.length < 4 ? "spread-three" : "spread-ten"}>
+            {cardsForRender}
+        </div>
     );
 }
 

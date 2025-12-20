@@ -3,19 +3,12 @@ import Spread from "../components/Spread";
 import Reading from "../components/Reading";
 
 const ReadingContainer = () => {
-    const [selectedSpread, setSelectedSpread] = useState('');  // this is selecting the spread - 3 or 10
-    // const [selectedTopic, setSelectedTopic] = useState('');     // this is selecting the topic - does nothing atm 
+    const [selectedSpread, setSelectedSpread] = useState('');
     const [cards, setCards] = useState(null);
 
     const handleSpreadChange = (event) => {
         setSelectedSpread(event.target.value);
     }
-
-    // const handleTopicChange = event => {
-    //     setSelectedTopic(event.target.value);
-    // }
-
-
 
     const handleSaveSpread = async () => {
         const newReading = {
@@ -40,7 +33,7 @@ const ReadingContainer = () => {
                 apiLink = "/api/reading/10";
             }
             if (apiLink) {
-                const data = fetch(apiLink)
+                fetch(apiLink)
                     .then((res) => res.json())
                     .then((info) => {
                         const cardReadings = info.map((card, index) => {
@@ -71,7 +64,6 @@ const ReadingContainer = () => {
                         <option value="three-card">Three-Card Spread</option>
                         <option value="celtic-cross">Celtic Cross Spread</option>
                     </select>
-                    {/* {cards.length > 0 && <Card card={cards} />} */}
                 </div>
 
                 {cards ? <Spread
@@ -82,33 +74,11 @@ const ReadingContainer = () => {
                 {cards ? <input type="submit"
                     name="submit"
                     value="Save This Spread"
-                    onClick={handleSaveSpread}
                 />
                     : null
                 }
 
-
-                {/* 
-                <select value={selectedTopic} onChange={handleTopicChange}>
-                    <option value="">Select A Topic</option>
-                    <option value='love'>love</option>
-                    <option value='life'>life</option>
-                    <option value='work'>work</option>
-                    <option value='code'>code</option>
-                    <option value='money'>money</option>
-                </select> */}
-                {/* 
-                <button type="submit" onClick={handleSubmit}>
-                    Get a Reading
-                </button> */}
-
-
-
                 {cards ? <Reading cards={cards} /> : null}
-
-
-
-
             </div>
         </>
     );
