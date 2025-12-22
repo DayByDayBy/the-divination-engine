@@ -2,13 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Card = ({ card, cardDescription }) => {
-    const imgPath = require(`../images/${card.card.nameShort}.jpg`);
+    // Use import.meta.glob for Vite to handle dynamic images
+    const images = import.meta.glob('../images/*.jpg', { eager: true });
+    const imgPath = images[`../images/${card.card.nameShort}.jpg`]?.default || '';
 
     return (
         <>
             <div className="card-object">
                 <div className={card.reversed ? "card-reverse" : "card"}>
-                    <img src={imgPath} alt={card.card.name} />
+                    {imgPath ? <img src={imgPath} alt={card.card.name} /> : <div className="no-image">No Image</div>}
                 </div>
                 <p className="cardDescription">{cardDescription}</p> 
                 <div className="name-of-card">
