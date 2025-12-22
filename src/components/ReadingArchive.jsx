@@ -3,7 +3,7 @@ import { Routes, Route, useParams } from "react-router-dom";
 import ArchivedReadingList from './ArchivedReadingList.jsx';
 import ArchiveItem from './ArchiveItem.jsx';
 import { readingAPI } from '../services/api';
-import { ERROR_MESSAGES, UI_TEXT } from '../constants/index.js';
+import { ERROR_MESSAGES, UI_TEXT } from '../constants/index.jsx';
 
 const ReadingArchive = () => {
   const [readings, setReadings] = useState([]);
