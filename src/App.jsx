@@ -4,7 +4,7 @@ import ReadingContainer from "./containers/ReadingContainer.jsx";
 import ArchiveContainer from "./containers/ArchiveContainer.jsx";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import MainContainer from "./containers/ReadingContainer.jsx";
+import MainContainer from "./containers/MainContainer.jsx";
 
 function App() {
   return (

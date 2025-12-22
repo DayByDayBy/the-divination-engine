@@ -51,11 +51,14 @@ export const ERROR_MESSAGES = {
 
 export const UI_TEXT = {
   NO_READINGS: 'No readings archived yet.',
-  LOADING: 'Loading readings...',
+  LOADING: 'Loading...',
   SELECT_SPREAD: 'Select A Spread:',
   THREE_CARD_LABEL: 'Three-Card Spread',
   CELTIC_CROSS_LABEL: 'Celtic Cross Spread',
   SAVE_SPREAD: 'Save This Spread',
+  SAVING: 'Saving...',
+  SAVE_SUCCESS: 'Reading saved successfully!',
+  SAVE_FAILED: 'Failed to save reading. Please try again.',
   VIEW_BUTTON: 'View',
   DELETE_BUTTON: 'Delete'
 };

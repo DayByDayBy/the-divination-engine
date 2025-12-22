@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ArchivedReading from "./ArchivedReading.jsx";
-import { UI_TEXT } from "../constants/index.js";
+import { UI_TEXT } from "../constants/index.jsx";
 
 const ArchivedReadingList = ({ readings, handleDeleteReading }) => {
     if (!readings || readings.length === 0) {

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Card from "./Card.jsx";
-import { CARD_POSITIONS, SPREAD_CARD_COUNTS, SPREAD_TYPES } from "../constants/index.js";
+import { CARD_POSITIONS, SPREAD_CARD_COUNTS, SPREAD_TYPES } from "../constants/index.jsx";
 
 const Spread = ({ cards }) => {
 
